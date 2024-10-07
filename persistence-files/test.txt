@@ -39,7 +39,7 @@ public class CodeCommentsSeparation {
     }
 
     private static boolean isComment(String line) {
-        return line.trim().startsWith(IS_COMMENTS);
+        return line.trim().startsWith(COMMENTS_SYMBOL);
     }
 }
         //TODO - data from args[0] split to two files: args[1], args[2]

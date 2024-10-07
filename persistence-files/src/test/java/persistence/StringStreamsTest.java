@@ -3,12 +3,20 @@ package persistence;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.io.*;
+import java.nio.file.FileVisitResult;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.SimpleFileVisitor;
+import java.nio.file.attribute.BasicFileAttributes;
 
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 public class StringStreamsTest {
     static final String PRINT_STREAM_FILE = "printStreamFile.txt";
     static final String PRINT_WRITER_FILE = "printWriterFile.txt";
+    static final String DIRECTORY = "C:\\TNx64\\Tcimg";
+    static final String OUTPUT_PATH_FILE = "TreeFile.txt";
     @Test
     @Disabled
     void printStreamTest() throws Exception{
@@ -31,15 +39,51 @@ public class StringStreamsTest {
         reader.close();
     }
     @Test
-    void printingDirectoryTest(){
-        printDirectoryContent("\\",3);
+    void printingDirectoryTest() throws Exception {
+        printDirectoryContent(DIRECTORY,3);
     }
     /**
      * 
      * @param path -  path to a directory
      * @param depth -  number of been walked levels
      */
-    void printDirectoryContent(String path, int depth) {
+    void printDirectoryContent(String path, int depth) throws IOException {
+        Path startDirectory = Paths.get(path);
+
+        try (PrintWriter printWriter = new PrintWriter(OUTPUT_PATH_FILE)) {
+            Files.walkFileTree(startDirectory, new SimpleFileVisitor<>() {
+                private int currentDepth = 0;
+
+                @Override
+                public FileVisitResult preVisitDirectory(Path dir, BasicFileAttributes attrs) {
+                    if (currentDepth <= depth) {
+                        printPathIntoFile(printWriter, dir);
+                        currentDepth++;
+                    }
+                    return FileVisitResult.CONTINUE;
+
+                }
+
+                @Override
+                public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) {
+                    if (currentDepth <= depth) {
+                        printPathIntoFile(printWriter, file);
+                    }
+                    return FileVisitResult.CONTINUE;
+                }
+                
+                @Override
+                public FileVisitResult postVisitDirectory(Path dir, IOException exc) {
+                    currentDepth--;
+                    return FileVisitResult.CONTINUE;
+                }
+
+                private void printPathIntoFile(PrintWriter printWriter, Path path) {
+                    printWriter.println("  ".repeat(currentDepth * 2) + path.getFileName());
+                }
+            });
+        }
+
         //TODO
         //dir1
           //dir11

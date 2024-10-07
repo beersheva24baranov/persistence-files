@@ -1,0 +1,95 @@
+Tcimg
+    Dialog.ini
+    Files
+        Bar
+            Button.txt
+            Icon.bar
+            Panel.bar
+        DLL
+            base.dll
+            dbf.dll
+            Flash10c.ocx
+            gmp.dll
+            GMP_COPYING.LESSERv3
+            librhash.dll
+            MediaInfo.dll
+            SWF.exe
+        Img
+            DarkBlue.gif
+            Error.gif
+            Error.ico
+            Error.png
+            Lite.bmp
+            Mono8x8.ico
+            otk.ico
+            Progress.gif
+            Puzzle.bmp
+            TCIMG.gif
+            vkl.ico
+        Ini
+            RegExMenu1.ini
+            Symbols.ini
+            TCIMG3264.ini
+            TCIMG3264_10_5.ini
+            TCIMG3264_11.ini
+            TOTALCOM.ini
+        Library
+            Example.rgx
+        Lng
+            TCIMGU.lng
+            TCIMG_Russian.lng
+        PlayList
+            RADIO_+ FAVOURITES.m3u
+            RADIO_+0.m3u
+            RADIO_A_MY.m3u
+            RADIO_FLAC+VORBIS+AAC.m3u
+            RADIO_HOTMIX RADIO.m3u
+            RADIO_RAP AND HIP-HOP.m3u
+            RADIO_ROCK MUSIC.m3u
+            RADIO_ROMANTIC.m3u
+            RADIO_В СТИЛЕ РЕТРО.m3u
+            RADIO_ДЕТСКОЕ РАДИО.m3u
+            RADIO_ДИСКОТЕКА 90-Х.m3u
+            RADIO_ЛИТЕРАТУРА.m3u
+            RADIO_ПОЗИТИВНОЕ.m3u
+            RADIO_ПОП-МУЗЫКА.m3u
+            RADIO_ШАНСОН.m3u
+        Scripts
+            0.a3x
+            1.a3x
+            2.a3x
+            3.a3x
+            4.a3x
+            5.a3x
+            AHK1.ahk
+            Func.au3
+            Func.js
+            Func.vbs
+            PotPlayer.au3
+            PS1.ps1
+            PS2.ps1
+            PS3.ps1
+            SortLinesByLength.js
+            TCIMGS.a3x
+            TextStatistics.js
+            ToolTipClipGet.au3
+            UIA.txt
+        Tcg
+            TCIMG.tcg
+    INC.tci
+    INC2.tci
+    Menu
+        Barmenuimg.exe
+        Barmenuimg.ini
+        Barmenuimg.txt
+        Readme.txt
+        Select.bar
+        Select.br2
+        Select.dll
+        Select.jpg
+    Tcimg.chm
+    TCIMG.dll
+    TCIMG.exe
+    TCIMG.ini
+    Tcimgu.ini
+    Temp
