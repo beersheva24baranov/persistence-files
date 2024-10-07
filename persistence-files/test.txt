@@ -6,10 +6,9 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 public class CodeCommentsSeparation {
-    private static final String IS_COMMENTS = "//";
-
+    
     public static void main(String[] args) {    
-        if (args == null || args.length < 3) {
+        if (args.length != 3) {
             new IllegalArgumentException();
         }
 
@@ -21,25 +20,25 @@ public class CodeCommentsSeparation {
     }
 
     private static void separateCodeComments(String filePath, String codePath, String commentsPath) throws IOException {
-        BufferedReader reader = new BufferedReader(new FileReader(filePath));
-        PrintWriter codeWriter = new PrintWriter(codePath);
-        PrintWriter commentsWriter = new PrintWriter(commentsPath);
+        BufferedReader fileReader = new BufferedReader(new FileReader(filePath));
+        PrintWriter code = new PrintWriter(codePath);
+        PrintWriter comments = new PrintWriter(commentsPath);
 
-        reader.lines().forEach(line -> {
+        fileReader.lines().forEach(line -> {
             if (isComment(line)) {
-                commentsWriter.println(line);
+                comments.println(line);
             } else {
-                codeWriter.println(line);
+                code.println(line);
             }
         });
 
-        codeWriter.close();
-        commentsWriter.close();
-        reader.close();
+        code.close();
+        comments.close();
+        fileReader.close();
     }
 
     private static boolean isComment(String line) {
-        return line.trim().startsWith(COMMENTS_SYMBOL);
+        return line.trim().startsWith("//");
     }
 }
         //TODO - data from args[0] split to two files: args[1], args[2]
